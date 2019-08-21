@@ -1,0 +1,33 @@
+{
+  "name": "gachaapi",
+  "version": "0.0.0-alpha",
+  "description": "GachaKit Api Server Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gachakit/GachaAPI.git"
+  },
+  "keywords": [
+    "GachaKit",
+    "api-server",
+    "framework",
+    "nodejs"
+  ],
+  "author": "Michael Leonffu, Alex Baratti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gachakit/GachaAPI/issues"
+  },
+  "homepage": "https://github.com/gachakit/GachaAPI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.3.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
+  }
+}
