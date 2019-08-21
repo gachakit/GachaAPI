@@ -1,12 +1,13 @@
 # dependencies
-/node_modules
+node_modules
 
 # System Files
 .DS_Store
 Thumbs.db
 
 # data
-/data/db
+data/db
 
 #config
-/config.js
+config/config.js
+config/config.js
