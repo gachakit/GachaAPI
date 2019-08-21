@@ -11,10 +11,10 @@ const   jwt             = require('jsonwebtoken')
 //Add logic to check if config file exsists (if not then exit and prompt user)
 //Add logic to check if database files have been intintazlied; such as teams data and seasons data
 
-// const	MongoClient 	= require('mongodb').MongoClient
-// const	configDB 		= config.mongodb
-// const	assert 			= require('assert')
-// const 	ObjectId 		= require('mongodb').ObjectID
+const	MongoClient 	= require('mongodb').MongoClient
+const	configDB 		= config.mongodb
+const	assert 			= require('assert')
+const 	ObjectId 		= require('mongodb').ObjectID
 
 app.use(morgan('dev')) 	//log every request to the console
 
@@ -35,7 +35,14 @@ function someMiddleWare(req, res, next){
 
 app.use(someMiddleWare)
 
-require('./api/api')(config, app)
+MongoClient.connect(configDB.url, function(err, client){
+	assert.equal(null, err)
+
+	var db = client.db(configDB.db)
+
+	//these apis require the same mongodb instance
+	require('./api/api')(config, app, db)
+})
 
 app.listen(port)
 console.log('Server started on port ' + port)
